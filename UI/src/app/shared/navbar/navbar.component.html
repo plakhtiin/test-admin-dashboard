@@ -1,0 +1,11 @@
+<div id="layout-sidebar">
+  <ul>
+    <li *ngFor="let link of routerLinks" [routerLink]="[link.path]">
+      <h3><i [class]="'pi ' + link.icon"></i>
+        <span>
+        {{link.title}}
+      </span>
+      </h3>
+    </li>
+  </ul>
+</div>
