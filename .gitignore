@@ -1,12 +1,15 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/dist
-/tmp
-/out-tsc
+/UI/dist
+/API/dist
+/UI/tmp
+/UI/out-tsc
 
 # dependencies
 /node_modules
+/UI/node_modules
+/API/node_modules
 
 # profiling files
 chrome-profiler-events.json
@@ -14,6 +17,8 @@ speed-measure-plugin.json
 
 # IDEs and editors
 /.idea
+/UI/.idea
+/API/.idea
 .project
 .classpath
 .c9/
@@ -29,14 +34,14 @@ speed-measure-plugin.json
 !.vscode/extensions.json
 
 # misc
-/.sass-cache
+/UI/.sass-cache
 /connect.lock
-/coverage
+/UI/coverage
 /libpeerconnection.log
-npm-debug.log
-yarn-error.log
+/UI/npm-debug.log
+/UI/yarn-error.log
 testem.log
-/typings
+/UI/typings
 
 # System Files
 .DS_Store
