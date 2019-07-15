@@ -28,6 +28,18 @@ export class NavbarComponent implements OnInit {
   }
   
   ngOnInit() {
+    this.longestWord('what444 time is it now what1 what2 what33s');
   }
-  
+  public longestWord(str: string): string {
+    const wordArr: string[] = str.split(/\s/);
+    let maxStrLength = 0;
+    let largestWord = '';
+    wordArr.forEach((word: string) => {
+      if (maxStrLength < word.length) {
+        maxStrLength = word.length;
+        largestWord = word;
+      }
+    });
+    return largestWord;
+  }
 }
