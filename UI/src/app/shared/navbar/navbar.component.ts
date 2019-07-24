@@ -13,9 +13,9 @@ export class NavbarComponent implements OnInit {
       icon: 'pi-calendar'
     },
     {
-      title: 'Forms',
-      path: 'forms',
-      icon: 'pi-copy'
+      title: 'Device',
+      path: 'device',
+      icon: 'pi-th-large'
     },
     {
       title: 'Charts',

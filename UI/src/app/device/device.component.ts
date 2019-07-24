@@ -1,17 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../shared/services/api.service';
 import { Room } from '../../../../API/src/db/models/room';
-import { DeviceType } from '../../../../API/src/db/models/device_type';
+import { DeviceType } from '../../../../API/src/db/models/device-type';
+import { Device } from '../../../../API/src/db/models/device';
+import { OperatingSystem } from '../../../../API/src/db/models/operating-system';
 
 @Component({
-  selector: 'app-forms',
-  templateUrl: './forms.component.html',
-  styleUrls: ['./forms.component.scss']
+  selector: 'app-device',
+  templateUrl: './device.component.html',
+  styleUrls: ['./device.component.scss']
 })
-export class FormsComponent implements OnInit {
+export class DeviceComponent implements OnInit {
   public allRooms: Room[] = [];
   public allDeviceTypes: DeviceType[] = [];
-  public newDevice = {
+  public allOSTypes: OperatingSystem[] = [];
+  public newDevice: Device = {
     title: '',
     room_id: null,
     os_type: null,
@@ -29,10 +32,13 @@ export class FormsComponent implements OnInit {
     this.apiService.rest('/allDeviceTypes').subscribe((allDeviceTypes: DeviceType[]) => {
       this.allDeviceTypes = allDeviceTypes;
     });
+    this.apiService.rest('/allOperatingSystems').subscribe((allOSTypes: OperatingSystem[]) => {
+      this.allOSTypes = allOSTypes;
+    });
   }
 
   public addNewDevice(): void {
-    this.apiService.rest('/device', 'PUT', this.newDevice).subscribe((res) => console.log(res));
+    this.apiService.rest('/device', 'POST', this.newDevice).subscribe((res) => console.log(res));
   }
 
 }

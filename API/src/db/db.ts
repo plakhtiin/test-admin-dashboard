@@ -1,6 +1,4 @@
 import { Client } from 'pg';
-import { Room } from './models/room';
-import { DeviceType } from './models/device_type';
 
 const client = new Client({
   user: 'ljfcticwoomtmp',
@@ -17,27 +15,7 @@ client.connect()
   })
   .catch((err) => console.error(err));
 
-export function getAllRooms(): Promise<void | Room[]> {
-  return client.query('SELECT t.* FROM public.rooms t', [])
-    .then((res) => {
-      return res.rows as Room[];
-    })
-    .catch((err) => {
-      console.error(err);
-      return err;
-    });
-}
-
-export function getAllDeviceTypes(): Promise<void | DeviceType[]> {
-  return client.query('SELECT t.* FROM public.device_type t', [])
-    .then((res) => {
-      return res.rows as DeviceType[];
-    })
-    .catch((err) => {
-      console.error(err);
-      return err;
-    });
-}
+export { client };
 
 // client.query('SELECT t.* FROM public.lists t WHERE title=\'1\'', [])
 //   .then((res) => {

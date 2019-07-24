@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'forms'
+    redirectTo: 'device'
   },
   {
     path: 'calendar',
@@ -16,8 +16,8 @@ const routes: Routes = [
     loadChildren: () => import('./charts/charts.module').then(mod => mod.ChartsModule)
   },
   {
-    path: 'forms',
-    loadChildren: () => import('./forms/forms.module').then(mod => mod.FormsModule)
+    path: 'device',
+    loadChildren: () => import('./device/device.module').then(mod => mod.DeviceModule)
   }
 ];
 

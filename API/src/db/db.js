@@ -9,33 +9,12 @@ var client = new pg_1.Client({
     port: 5432,
     ssl: true
 });
+exports.client = client;
 client.connect()
     .then(function () {
     console.info('DB is connected');
 })
     .catch(function (err) { return console.error(err); });
-function getAllRooms() {
-    return client.query('SELECT t.* FROM public.rooms t', [])
-        .then(function (res) {
-        return res.rows;
-    })
-        .catch(function (err) {
-        console.error(err);
-        return err;
-    });
-}
-exports.getAllRooms = getAllRooms;
-function getAllDeviceTypes() {
-    return client.query('SELECT t.* FROM public.device_type t', [])
-        .then(function (res) {
-        return res.rows;
-    })
-        .catch(function (err) {
-        console.error(err);
-        return err;
-    });
-}
-exports.getAllDeviceTypes = getAllDeviceTypes;
 // client.query('SELECT t.* FROM public.lists t WHERE title=\'1\'', [])
 //   .then((res) => {
 //     console.info(res.rows) // Hello World!

@@ -1,24 +1,23 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Router = require("koa-router");
-var db_1 = require("../db/db");
+var devices_db_1 = require("../db/devices-db");
 var handler_error_1 = require("./handler-error");
+var Router = require("koa-router");
 var router = new Router();
 exports.router = router;
-router.use(function (ctx, next) { return next()
-    .then(function (_) { return console.log('Success'); })
-    .catch(function (err) { return console.error(err.stack); }); });
-router.get('/allRooms', function (ctx) {
-    return db_1.getAllRooms()
+router.get('/allDeviceTypes', function (ctx) {
+    return devices_db_1.getAllDeviceTypes()
         .then(function (rows) {
-        return ctx.body = rows;
+        return ctx.body = rows.map(function (row) {
+            return { value: row.id, label: row.title };
+        });
     })
         .catch(function (err) {
         return handler_error_1.handlerError(err);
     });
 });
-router.get('/allDeviceTypes', function (ctx) {
-    return db_1.getAllDeviceTypes()
+router.post('/device', function (ctx) {
+    return devices_db_1.createNewDevice(ctx.request.body)
         .then(function (rows) {
         return ctx.body = rows;
     })

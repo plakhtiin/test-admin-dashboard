@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { FormsRoutingModule } from './forms-routing.module';
-import { FormsComponent } from './forms.component';
+import { DeviceRoutingModule } from './device-routing.module';
+import { DeviceComponent } from './device.component';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  declarations: [FormsComponent],
+  declarations: [DeviceComponent],
   imports: [
     CommonModule,
-    FormsRoutingModule,
+    DeviceRoutingModule,
     SharedModule
   ],
 })
-export class FormsModule { }
+export class DeviceModule { }

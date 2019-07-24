@@ -1,0 +1,54 @@
+<section class="container">
+  <div class="ui-g">
+    <div class="ui-g-12">
+      <h2>Add New Device</h2>
+    </div>
+    <div class="ui-g-3">
+      <label for="float-input">Device name</label>
+    </div>
+    <div class="ui-g-9">
+    <span class="ui-float-label">
+      <input
+        id="float-input"
+        type="text"
+        size="30"
+        pInputText
+        [(ngModel)]="newDevice.title"
+      >
+    </span>
+    </div>
+    <div class="ui-g-3">
+      <label>Device Type</label>
+    </div>
+    <div class="ui-g-9">
+      <p-dropdown
+        [options]="allDeviceTypes"
+        [(ngModel)]="newDevice.device_type"
+        placeholder="Device Type"
+      ></p-dropdown>
+    </div>
+    <div class="ui-g-3">
+      <label>OS Type</label>
+    </div>
+    <div class="ui-g-9">
+      <p-dropdown
+        [options]="allOSTypes"
+        [(ngModel)]="newDevice.os_type"
+        placeholder="OS Type"
+      ></p-dropdown>
+    </div>
+    <div class="ui-g-3">
+      <label>Room</label>
+    </div>
+    <div class="ui-g-9">
+      <p-dropdown
+        [options]="allRooms"
+        [(ngModel)]="newDevice.room_id"
+        placeholder="Room"
+      ></p-dropdown>
+    </div>
+    <div class="ui-g-12">
+      <p-button label="Add new device" icon="pi pi-check" iconPos="left" (onClick)="addNewDevice()"></p-button>
+    </div>
+  </div>
+</section>
