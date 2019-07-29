@@ -8,9 +8,7 @@ const router = new Router();
 router.get('/allDeviceTypes', (ctx) => {
   return getAllDeviceTypes()
     .then((rows: DeviceType[]) => {
-      return ctx.body = (rows as DeviceType[]).map(row => {
-        return {value: row.id, label: row.title};
-      });
+      return ctx.body = (rows as DeviceType[]);
     })
     .catch((err) => {
       return handlerError(err);

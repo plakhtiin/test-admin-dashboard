@@ -8,9 +8,7 @@ exports.router = router;
 router.get('/allDeviceTypes', function (ctx) {
     return devices_db_1.getAllDeviceTypes()
         .then(function (rows) {
-        return ctx.body = rows.map(function (row) {
-            return { value: row.id, label: row.title };
-        });
+        return ctx.body = rows;
     })
         .catch(function (err) {
         return handler_error_1.handlerError(err);

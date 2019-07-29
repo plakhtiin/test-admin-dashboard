@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import * as RoomsCollectionActions from './store/actions/rooms/rooms-collection.actions';
+import { Store } from '@ngrx/store';
+import { State } from './store/reducers';
 
 @Component({
   selector: 'app-root',
@@ -6,4 +9,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  constructor(
+    private store: Store<State>
+  ) {
+    store.dispatch(new RoomsCollectionActions.LoadRoomsCollectionRequest());
+  }
 }

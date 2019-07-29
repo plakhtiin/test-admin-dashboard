@@ -22,7 +22,7 @@
     </div>
     <div class="ui-g-9">
       <p-dropdown
-        [options]="allDeviceTypes"
+        [options]="(allDeviceTypes$ | async)"
         [(ngModel)]="newDevice.device_type"
         placeholder="Device Type"
       ></p-dropdown>
@@ -32,7 +32,7 @@
     </div>
     <div class="ui-g-9">
       <p-dropdown
-        [options]="allOSTypes"
+        [options]="(allOSTypes$ | async)"
         [(ngModel)]="newDevice.os_type"
         placeholder="OS Type"
       ></p-dropdown>
@@ -42,7 +42,7 @@
     </div>
     <div class="ui-g-9">
       <p-dropdown
-        [options]="allRooms"
+        [options]="(allRooms$ | async)"
         [(ngModel)]="newDevice.room_id"
         placeholder="Room"
       ></p-dropdown>

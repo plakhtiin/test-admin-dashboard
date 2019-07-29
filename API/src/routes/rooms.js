@@ -8,7 +8,7 @@ exports.router = router;
 router.use(function (ctx, next) { return next()
     .catch(function (err) { return console.error(err.stack); }); });
 router.get('/allRooms', function (ctx) {
-    return rooms_db_1.getAllRoomsOptions()
+    return rooms_db_1.getAllRooms()
         .then(function (rows) {
         return ctx.body = rows;
     })

@@ -1,12 +1,12 @@
 import * as Router from 'koa-router';
 import { handlerError } from './handler-error';
-import { getAllOperatingSystemsOptions } from '../db/operating-systems';
+import { getAllOperatingSystems } from '../db/operating-systems';
 import { OperatingSystem } from '../db/models/operating-system';
 
 const router = new Router();
 
 router.get('/allOperatingSystems', (ctx) => {
-  return getAllOperatingSystemsOptions()
+  return getAllOperatingSystems()
     .then((rows: OperatingSystem[]) => {
       return ctx.body = rows;
     })

@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var db_1 = require("./db");
-function getAllOperatingSystemsOptions() {
-    return db_1.client.query('SELECT name as label, id as value FROM public.operating_systems t', [])
+function getAllOperatingSystems() {
+    return db_1.client.query('SELECT name, id FROM public.operating_systems t', [])
         .then(function (res) {
         return res.rows;
     })
@@ -11,4 +11,4 @@ function getAllOperatingSystemsOptions() {
         return err;
     });
 }
-exports.getAllOperatingSystemsOptions = getAllOperatingSystemsOptions;
+exports.getAllOperatingSystems = getAllOperatingSystems;

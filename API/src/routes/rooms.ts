@@ -1,5 +1,5 @@
 import * as Router from 'koa-router';
-import { getAllRoomsOptions } from '../db/rooms-db';
+import { getAllRooms } from '../db/rooms-db';
 import { handlerError } from './handler-error';
 import { OptionsType } from '../db/models/options-type';
 
@@ -10,7 +10,7 @@ router.use((ctx, next) => next()
 );
 
 router.get('/allRooms', (ctx) => {
-  return getAllRoomsOptions()
+  return getAllRooms()
     .then((rows: OptionsType[]) => {
       return ctx.body = rows;
     })

@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var db_1 = require("./db");
 function getAllDeviceTypes() {
-    return db_1.client.query('SELECT id as value, title as label FROM public.device_types t', [])
+    return db_1.client.query('SELECT id, title FROM public.device_types t', [])
         .then(function (res) {
         return res.rows;
     })
