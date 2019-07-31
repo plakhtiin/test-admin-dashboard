@@ -7,10 +7,54 @@
   overflow-x: hidden;
   overflow-y: auto;
   width: 200px;
-  box-shadow: 0 0 5px 0 rgba(0,0,0,.3);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, .3);
+
   ul {
     li {
       list-style-type: none;
+
+      .item {
+        margin: 0;
+        vertical-align: middle;
+        display: inline-block;
+        padding: 0.25em;
+
+        .label, .icon {
+          margin: 0;
+          vertical-align: middle;
+          display: inline-block;
+          padding: 0.25em;
+        }
+
+        .icon {
+          padding: 0.25em 0;
+          color: #737373;
+        }
+
+        &:hover {
+          background-color: #eaeaea;
+        }
+      }
+
+      &.active {
+        > span {
+          background-color: #eaeaea;
+        }
+      }
+    }
+  }
+}
+
+::ng-deep {
+  .ui-tree {
+    padding-left: 10px;
+
+    .ui-treenode.active > {
+      .ui-treenode-content {
+        .ui-treenode-label {
+          background-color: #eaeaea;
+        }
+      }
     }
   }
 }

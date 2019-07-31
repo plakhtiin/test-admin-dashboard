@@ -1,12 +1,23 @@
 <div id="layout-sidebar">
   <h2>Smart Home</h2>
   <ul>
-    <li *ngFor="let link of routerLinks" [routerLink]="[link.path]">
-      <h3><i [class]="'pi ' + link.icon"></i>
-        <span>
-        {{link.title}}
+    <li *ngFor="let link of routerLinks" [routerLink]="[link.path]" (click)="clearAllRoomStyles()" routerLinkActive="active">
+      <span class="item ui-corner-all">
+        <span class="icon">
+          <i [class]="link.icon"></i>
+        </span>
+        <span class="label">
+          {{link.title}}
+        </span>
       </span>
-      </h3>
     </li>
   </ul>
+  <p-tree [value]="rooms" selectionMode="single" (onNodeSelect)="goToRoom($event)">
+    <ng-template let-node  pTemplate="default">
+      <span class="ui-treenode-icon">
+        <fa-icon [icon]="node.icon"></fa-icon>
+      </span>
+      <span class="ui-treenode-label">{{node.label}}</span>
+    </ng-template>
+  </p-tree>
 </div>

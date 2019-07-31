@@ -6,7 +6,7 @@ import { OptionsType } from './models/options-type';
 export function getAllDeviceTypes(): Promise<void | DeviceType[]> {
   return client.query('SELECT id, title FROM public.device_types t', [])
     .then((res) => {
-      return res.rows as OptionsType[];
+      return res.rows as DeviceType[];
     })
     .catch((err) => {
       console.error(err);

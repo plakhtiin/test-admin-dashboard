@@ -18,7 +18,11 @@ const routes: Routes = [
   {
     path: 'device',
     loadChildren: () => import('./device/device.module').then(mod => mod.DeviceModule)
-  }
+  },
+  {
+    path: 'rooms',
+    loadChildren: () => import('./rooms/rooms.module').then(mod => mod.RoomsModule)
+  },
 ];
 
 @NgModule({

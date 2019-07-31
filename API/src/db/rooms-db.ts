@@ -1,10 +1,10 @@
 import { client } from './db';
-import { OptionsType } from './models/options-type';
+import { Room } from './models/room';
 
-export function getAllRooms(): Promise<void | OptionsType[]> {
-  return client.query('SELECT id, name FROM public.rooms t', [])
+export function getAllRooms(): Promise<void | Room[]> {
+  return client.query('SELECT id, name, icon FROM public.rooms t', [])
     .then((res) => {
-      return res.rows as OptionsType[];
+      return res.rows as Room[];
     })
     .catch((err) => {
       console.error(err);
