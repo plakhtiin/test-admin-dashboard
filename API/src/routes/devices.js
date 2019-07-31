@@ -23,3 +23,15 @@ router.post('/device', function (ctx) {
         return handler_error_1.handlerError(err);
     });
 });
+router.get('/device', function (ctx) {
+    console.log(ctx.request.query);
+    return devices_db_1.getDeviceById(ctx.request.query.deviceId)
+        .then(function (row) {
+        if (row) {
+            return ctx.body = row;
+        }
+    })
+        .catch(function (err) {
+        return handler_error_1.handlerError(err);
+    });
+});

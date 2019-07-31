@@ -26,8 +26,8 @@ export class NavbarComponent implements OnInit {
       icon: 'pi pi-calendar',
     },
     {
-      title: 'Device',
-      path: 'device',
+      title: 'Devices',
+      path: 'devices',
       icon: 'pi pi-th-large',
     },
     {

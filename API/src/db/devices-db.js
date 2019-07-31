@@ -23,3 +23,14 @@ function createNewDevice(newDevice) {
     });
 }
 exports.createNewDevice = createNewDevice;
+function getDeviceById(deviceId) {
+    return db_1.client.query('SELECT * FROM public.devices t WHERE id = $1', [deviceId])
+        .then(function (res) {
+        return res.rows[0];
+    })
+        .catch(function (err) {
+        console.error('error', err);
+        return err;
+    });
+}
+exports.getDeviceById = getDeviceById;

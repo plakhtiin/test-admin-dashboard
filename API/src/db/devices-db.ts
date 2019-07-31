@@ -27,3 +27,14 @@ export function createNewDevice(newDevice: Device): Promise<void> {
       return err;
     });
 }
+
+export function getDeviceById(deviceId: number) {
+  return client.query('SELECT * FROM public.devices t WHERE id = $1', [deviceId])
+    .then((res) => {
+      return res.rows[0] as DeviceType;
+    })
+    .catch((err) => {
+      console.error('error', err);
+      return err;
+    });
+}
