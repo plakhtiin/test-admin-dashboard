@@ -1,7 +1,6 @@
 <div id="layout-sidebar">
-  <h2>Smart Home</h2>
-  <ul>
-    <li *ngFor="let link of routerLinks" [routerLink]="[link.path]" (click)="clearAllRoomStyles()" routerLinkActive="active">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item" *ngFor="let link of routerLinks" [routerLink]="[link.path]" (click)="clearAllRoomStyles()" routerLinkActive="active-item">
       <span class="item ui-corner-all">
         <span class="icon">
           <i [class]="link.icon"></i>

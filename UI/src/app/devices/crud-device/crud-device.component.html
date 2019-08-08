@@ -50,11 +50,16 @@
         placeholder="Room"
       ></p-dropdown>
     </div>
-    <div class="ui-g-12">
-      <p-button *ngIf="isEdit; else createNew" label="Save changes" icon="pi pi-check" iconPos="left" (onClick)="editDevice()"></p-button>
-      <ng-template #createNew>
-        <p-button label="Add new device" icon="pi pi-check" iconPos="left" (onClick)="addNewDevice()"></p-button>
-      </ng-template>
+    <div class="ui-g-12" *ngIf="isEdit; else createNew">
+      <p-button label="Save changes" icon="pi pi-check" iconPos="left" (onClick)="editDevice()"></p-button>
     </div>
+    <ng-template #createNew>
+      <div class="ui-g-6">
+        <p-button label="Add new device" icon="pi pi-check" iconPos="left" (onClick)="addNewDevice()"></p-button>
+      </div>
+      <div class="ui-g-6">
+        <button pButton label="Cancel" type="button" [routerLink]="['../']"></button>
+      </div>
+    </ng-template>
   </div>
 </section>

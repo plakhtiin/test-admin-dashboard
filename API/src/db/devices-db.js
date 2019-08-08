@@ -34,3 +34,14 @@ function getDeviceById(deviceId) {
     });
 }
 exports.getDeviceById = getDeviceById;
+function getDevices() {
+    return db_1.client.query('SELECT * FROM get_devices()')
+        .then(function (res) {
+        return res.rows;
+    })
+        .catch(function (err) {
+        console.error('error', err);
+        return err;
+    });
+}
+exports.getDevices = getDevices;

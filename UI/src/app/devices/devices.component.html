@@ -1,1 +1,11 @@
-devices
+<section class="container my-3">
+  <h3>Devices</h3>
+  <div class="float-right">
+    <button pButton type="button" icon="pi pi-plus" class="ui-button-raised ui-button-rounded" [routerLink]="['add']"></button>
+  </div>
+  <div class="row" *ngFor="let device of allDevices">
+    <div class="col-12">
+      {{device.title}}
+    </div>
+  </div>
+</section>

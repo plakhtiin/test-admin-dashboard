@@ -19,7 +19,7 @@ const DEVICE: Device = {
   styleUrls: ['./devices.component.scss']
 })
 export class DevicesComponent implements OnInit {
-  public allDevicesTypes: OptionsType[];
+  public allDevices: Device[];
   
   constructor(
     private apiService: ApiService,
@@ -28,8 +28,8 @@ export class DevicesComponent implements OnInit {
   }
   
   ngOnInit() {
-    this.apiService.rest('/device', 'GET')
-      .subscribe((res) => this.allDevicesTypes = cloneDeep(res));
+    this.apiService.rest('/devices', 'GET')
+      .subscribe((res) => this.allDevices = cloneDeep(res));
   }
   
 }

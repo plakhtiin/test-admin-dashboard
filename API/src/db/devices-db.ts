@@ -38,3 +38,16 @@ export function getDeviceById(deviceId: number) {
       return err;
     });
 }
+
+export function getDevices() {
+  return client.query(
+      'SELECT * FROM get_devices()'
+  )
+    .then((res) => {
+      return res.rows as DeviceType[];
+    })
+    .catch((err) => {
+      console.error('error', err);
+      return err;
+    });
+}
