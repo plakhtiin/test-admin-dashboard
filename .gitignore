@@ -48,4 +48,6 @@ testem.log
 Thumbs.db
 
 # Data Base
-/db/.idea
+/API/db/.idea
+
+*/.idea
